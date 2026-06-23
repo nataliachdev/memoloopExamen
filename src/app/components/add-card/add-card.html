@@ -1,0 +1,48 @@
+<form class="form" [formGroup]="form" (ngSubmit)="submit()">
+
+  <div class="card">
+
+    <h2>Ajouter une carte</h2>
+    <p class="subtitle">Crée une nouvelle entrée dans ton deck</p>
+
+    <div class="field">
+      <label for="word">Mot</label>
+      <input id="word" type="text" formControlName="word" />
+
+      @if (word.invalid && word.touched) {
+        <small class="error">
+          @if (word.hasError('required')) { Requis }
+          @if (word.hasError('maxlength')) { Trop long }
+        </small>
+      }
+    </div>
+
+    <div class="field">
+      <label for="translation">Traduction</label>
+      <input id="translation" type="text" formControlName="translation" />
+
+      @if (translation.invalid && translation.touched) {
+        <small class="error">
+          @if (translation.hasError('required')) { Requise }
+          @if (translation.hasError('maxlength')) { Trop long }
+        </small>
+      }
+    </div>
+
+    @if (error()) {
+      <div class="alert error">{{ error() }}</div>
+    }
+
+    @if (createdCard()) {
+      <div class="alert success">
+        Carte créée : {{ createdCard()!.word }} → {{ createdCard()!.translation }}
+      </div>
+    }
+
+    <button type="submit" [disabled]="loading()" class="btn">
+      {{ loading() ? 'Chargement...' : 'Ajouter' }}
+    </button>
+
+  </div>
+
+</form>

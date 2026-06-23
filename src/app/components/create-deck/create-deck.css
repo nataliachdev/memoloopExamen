@@ -1,0 +1,114 @@
+.form {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f6f7fb;
+  font-family: "Poppins", sans-serif;
+  padding: 2rem;
+}
+
+.card {
+  width: 100%;
+  max-width: 420px;
+  background: white;
+  border-radius: 18px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+
+h2 {
+  margin-bottom: .3rem;
+}
+
+.subtitle {
+  color: #777;
+  font-size: .9rem;
+  margin-bottom: 1.5rem;
+}
+
+/* FIELD */
+.field {
+  margin-bottom: 1.2rem;
+}
+
+label {
+  display: block;
+  font-size: .85rem;
+  margin-bottom: .4rem;
+  color: #444;
+}
+
+input {
+  width: 100%;
+  padding: .85rem;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.2s;
+}
+
+input:focus {
+  border-color: #58cc02;
+  box-shadow: 0 0 0 3px rgba(88,204,2,0.15);
+}
+
+/* ERROR TEXT */
+.error {
+  color: #e74c3c;
+  font-size: .75rem;
+  margin-top: .3rem;
+}
+
+/* ALERTS */
+.alert {
+  padding: .8rem;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  font-size: .85rem;
+}
+
+.alert.error {
+  background: #ffecec;
+  color: #c0392b;
+}
+
+.alert.success {
+  background: #eafaf1;
+  color: #1e8449;
+}
+
+/* JSON DEBUG */
+.json {
+  background: #f4f6f8;
+  padding: .8rem;
+  border-radius: 10px;
+  font-size: .75rem;
+  overflow: auto;
+  margin-bottom: 1rem;
+}
+
+/* BUTTON */
+.btn {
+  width: 100%;
+  padding: .9rem;
+  border-radius: 14px;
+  border: none;
+  background: #58cc02;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+  font-size: 1rem;
+}
+
+.btn:hover {
+  background: #4fb301;
+  transform: scale(1.02);
+}
+
+.btn:disabled {
+  background: #c5e8b0;
+  cursor: not-allowed;
+}

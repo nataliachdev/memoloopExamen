@@ -1,0 +1,60 @@
+@if (deckResource.isLoading()) {
+  <div class="state">Chargement…</div>
+}
+
+@if (deckResource.error()) {
+  <div class="state error">
+    Impossible de charger le deck.
+  </div>
+}
+
+@if (deckResource.value(); as deck) {
+
+  <div class="page">
+
+    <!-- HEADER -->
+    <div class="header">
+      <h2>{{ deck.name }}</h2>
+      <p class="subtitle">{{ deck.cards.length }} carte(s)</p>
+    </div>
+
+    <!-- TABLE -->
+    <div class="card">
+
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Mot</th>
+            <th>Traduction</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          @for (card of deck.cards; track card.id) {
+            <tr>
+              <td>{{ card.id }}</td>
+              <td class="word">{{ card.word }}</td>
+              <td class="translation">{{ card.translation }}</td>
+            </tr>
+          } @empty {
+            <tr>
+              <td colspan="3" class="empty">
+                Aucune carte dans ce deck
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+
+    </div>
+
+    <!-- ADD CARD -->
+    <div class="section">
+      <h3>Ajouter une carte</h3>
+      <app-add-card [deckId]="deck.id" />
+    </div>
+
+  </div>
+
+}

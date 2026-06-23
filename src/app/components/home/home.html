@@ -1,0 +1,27 @@
+<div class="home-container">
+  <h2>Choisissez une langue :</h2>
+
+  <div class="deck-list">
+    @for (deck of decks(); track deck.id) {
+      <button
+        class="deck-btn"
+        [class.active]="selectedDeckId() === deck.id"
+        (click)="selectDeck(deck.id)"
+      >
+        {{ deck.name }}
+      </button>
+    }
+  </div>
+
+  <div class="actions">
+
+    <button
+      class="start-btn"
+      (click)="startGame()"
+      [disabled]="!selectedDeckId()"
+    >
+      Commencer le quiz
+    </button>
+
+  </div>
+</div>

@@ -1,0 +1,68 @@
+@if (game.value(); as game) {
+
+  <div class="results-container">
+
+    <div class="summary-card">
+
+      <h2>Quiz terminé</h2>
+
+      <div class="score-circle">
+        {{ stats().correct }}/{{ stats().total }}
+      </div>
+
+      <p class="success-rate">
+        {{ (stats().correct / stats().total * 100).toFixed(0) }}% de réussite
+      </p>
+
+      <div class="summary-stats">
+        <div>
+          <span>✅</span>
+          <strong>{{ stats().correct }}</strong>
+          <small>bonnes réponses</small>
+        </div>
+
+        <div>
+          <span>❌</span>
+          <strong>{{ stats().incorrect }}</strong>
+          <small>erreurs</small>
+        </div>
+      </div>
+
+    </div>
+
+    <h3>Détail des réponses</h3>
+
+    <div class="answers">
+
+      @for (answer of game.answers; track answer.id) {
+
+        <div
+          class="answer-row"
+          [class.correct]="answer.correctAnswer"
+          [class.incorrect]="!answer.correctAnswer"
+        >
+
+          <div class="answer-header">
+            <span>{{ answer.card.word }}</span>
+            <span>{{ answer.correctAnswer ? '✅' : '❌' }}</span>
+          </div>
+
+          <div class="answer-detail">
+            <strong>Réponse attendue :</strong>
+            {{ answer.card.translation }}
+          </div>
+
+          <div class="answer-detail">
+            <strong>Votre réponse :</strong>
+            {{ answer.answer }}
+          </div>
+
+        </div>
+
+      }
+
+    </div>
+
+  </div>
+
+}

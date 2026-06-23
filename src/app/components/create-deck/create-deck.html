@@ -1,0 +1,49 @@
+<form class="form" [formGroup]="form" (ngSubmit)="submit()">
+
+  <div class="card">
+
+    <h2>Créer un deck 📚</h2>
+    <p class="subtitle">Organise ton apprentissage</p>
+
+    <!-- INPUT -->
+    <div class="field">
+      <label for="name">Nom du deck</label>
+      <input
+        id="name"
+        type="text"
+        formControlName="name"
+        placeholder="Mon deck"
+      />
+
+      @if (name.invalid && name.touched) {
+        <small class="error">
+          @if (name.hasError('required')) { Le nom est obligatoire }
+          @if (name.hasError('minlength')) { Minimum 2 caractères }
+        </small>
+      }
+    </div>
+
+    <!-- ERROR -->
+    @if (error()) {
+      <div class="alert error">
+        {{ error() }}
+      </div>
+    }
+
+    <!-- SUCCESS -->
+    @if (result()) {
+      <div class="alert success">
+        ✔ Deck créé avec succès
+      </div>
+
+      <!--pre class="json">{{ result() | json }}</pre-->
+    }
+
+    <!-- BUTTON -->
+    <button type="submit" [disabled]="form.invalid" class="btn">
+      Créer le deck
+    </button>
+
+  </div>
+
+</form>

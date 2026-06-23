@@ -1,0 +1,58 @@
+@if (gameAnswer.value(); as ga) {
+
+  <div class="quiz-container">
+
+    <!-- SCORE -->
+    <div class="score-bar">
+      <span class="good">✅ {{ scoreGood }}</span>
+      <span class="bad">❌ {{ scoreBad }}</span>
+    </div>
+
+    <!-- CARD -->
+    <div class="quiz-card">
+
+      <h2 class="title">Traduire</h2>
+
+      <div class="word">
+        {{ ga.card.word }}
+      </div>
+
+      <input
+        class="answer-input"
+        [formControl]="answerControl"
+        (keyup.enter)="submit()"
+        placeholder="Tape ta réponse..."
+      />
+
+      <button
+        class="primary-btn"
+        (click)="submit()"
+        [disabled]="answerControl.invalid"
+      >
+        Valider
+      </button>
+
+      @if (answerControl.invalid && answerControl.touched) {
+        <p class="error">⚠ Réponse invalide</p>
+      }
+
+      @if (result) {
+        <div
+          class="result"
+          [class.ok]="result.correctAnswer"
+          [class.ko]="!result.correctAnswer"
+        >
+          {{ result.correctAnswer ? '✅ Correct' : '❌ Faux' }}
+        </div>
+      }
+
+    </div>
+  </div>
+
+} @else {
+
+  <div class="loading">
+    <p>⏳ Chargement...</p>
+  </div>
+
+}

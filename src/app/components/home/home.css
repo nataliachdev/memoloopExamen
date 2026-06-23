@@ -1,0 +1,68 @@
+.home-container {
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 30px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 25px;
+  color: #222;
+}
+
+.deck-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+/* ---------------------------- Deck buttons --------------------------------------- */
+.deck-btn {
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 2px solid #e0e0e0;
+  background: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.2s ease;
+}
+
+.deck-btn:hover {
+  border-color: #6c63ff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* ---------------------------- Selected deck --------------------------------------- */
+.deck-btn.active {
+  background: #6c63ff;
+  color: white;
+  border-color: #6c63ff;
+}
+
+/* ---------------------------- Start button --------------------------------------- */
+.start-btn {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  background: #28a745;
+  color: white;
+  font-weight: bold;
+  transition: 0.2s ease;
+}
+
+.start-btn:hover:not(:disabled) {
+  background: #218838;
+  transform: scale(1.02);
+}
+
+.start-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}

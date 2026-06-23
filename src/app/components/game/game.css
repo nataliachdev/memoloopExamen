@@ -1,0 +1,126 @@
+.quiz-container {
+  max-width: 520px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* ----------------------------- SCORE ----------------------------- */
+.score-bar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.score-bar .good {
+  color: #28a745;
+}
+
+.score-bar .bad {
+  color: #dc3545;
+}
+
+/* ----------------------------- CARD ----------------------------- */
+.quiz-card {
+  background: white;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+/* ----------------------------- TITLE ----------------------------- */
+.title {
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #333;
+}
+
+/* ----------------------------- WORD -----------------------------  */
+.word {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 20px 0;
+  color: #6c63ff;
+}
+
+/* ----------------------------- INPUT ----------------------------------- */
+.answer-input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 2px solid #eee;
+  margin-bottom: 15px;
+  font-size: 16px;
+  outline: none;
+  transition: 0.2s;
+}
+
+.answer-input:focus {
+  border-color: #6c63ff;
+}
+
+/*------------------------------- BUTTON --------------------------------- */
+.primary-btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  background: #6c63ff;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.primary-btn:hover:not(:disabled) {
+  transform: scale(1.02);
+  background: #574fd6;
+}
+
+.primary-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* RESULT */
+.result {
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.result.ok {
+  background: #e9f9ee;
+  color: #28a745;
+}
+
+.result.ko {
+  background: #fdeaea;
+  color: #dc3545;
+}
+
+/* -------------------- ERROR -------------------------------- */
+.error {
+  color: #dc3545;
+  margin-top: 10px;
+}
+
+/* END SCREEN */
+.end-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+}
+
+.end-card {
+  text-align: center;
+  padding: 30px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
